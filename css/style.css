@@ -1,0 +1,224 @@
+/* 
+📌️📌️📌️ Disclaimer❗️❗️❗️
+The page is NOT responsive. It's a personal project I built to test my hands on JavaScript and not CSS 😃
+*/
+
+@keyframes moveInLeft {
+  0% {
+    transform: translateX(-15rem);
+  }
+  80% {
+    transform: translateX(0.5rem);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+:root {
+  --color-primary: #5ec576;
+  --color-secondary: #ffcb03;
+  --color-light: #ffffff;
+  --color-dark: #ddd;
+  --color-dark--2: #6b6b6b;
+  --color-primary-darker: #4bbb7d;
+  --color-secondary-darker: #ffbb00;
+  --color-primary-opacity: #5ec5763a;
+  --color-secondary-opacity: #ffcd0331;
+  --gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
+  --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+  overscroll-behavior-y: none;
+  background: var(--gradient-primary);
+}
+
+.todo-wrap {
+  padding: 2rem;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo__inner {
+  height: 40rem;
+  width: 50rem;
+  background: var(--color-light);
+  position: relative;
+  left: 0;
+  z-index: 20;
+  box-shadow: 25px 0px 29px -28px rgba(51, 51, 51, 0.5);
+}
+
+/****************************************
+* Todo Time and Date
+*/
+.todo__time-wrap {
+  height: 27rem;
+  width: 12rem;
+  padding: 3rem 1rem;
+  text-align: center;
+  background: var(--color-secondary-darker);
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  box-shadow: 0 2px 10px 2px rgba(51, 51, 51, 0.322);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  /* Initialize animation */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+.todo__time {
+  font-weight: 700;
+}
+
+.time__date--numeric {
+  font-size: 6rem;
+}
+
+.time__date--month_year {
+  margin: 0 0 0.3rem;
+}
+
+.todo__btn--add {
+  height: 5rem;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  text-decoration: none;
+  background: var(--gradient-primary);
+  color: var(--color-light);
+}
+
+.todo__box {
+  width: 52rem;
+  height: 48rem;
+  background-color: var(--color-light);
+  border-radius: 1rem;
+  position: absolute;
+  z-index: -10;
+  transform: translate(-9.6%, 5.5%);
+}
+
+/****************************************
+* Todo header
+*/
+.todo__header {
+  margin-bottom: 1.5rem;
+  padding: 0 0 1.5rem 2.5rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--color-primary-opacity);
+}
+
+.todo__img-wrap,
+.todo__img {
+  height: 5rem;
+  width: 5rem;
+}
+
+.todo__img {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.todo__user-wrap {
+  margin-left: 1.2rem;
+}
+
+.todo__user {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.todo__user-role {
+  font-size: 1.5rem;
+  color: var(--color-dark--2);
+}
+
+/****************************************
+* Todo body
+*/
+.todo__body {
+  padding: 0 3rem 0 2.5rem;
+  height: 30rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.todo__body::-webkit-scrollbar {
+  width: 0;
+}
+
+.todo__items {
+  list-style: none;
+  transition: all 0.5s, transform 1ms;
+}
+
+.todo__items--remove {
+  display: none;
+}
+
+.todo__item {
+  padding: 1rem 0;
+}
+
+.todo__select {
+  margin-right: 1rem;
+}
+
+.todo__select,
+.todo__body label,
+.todo__delete {
+  cursor: pointer;
+}
+
+.todo__select:checked ~ label {
+  text-decoration: line-through;
+}
+
+.todo__delete {
+  float: right;
+}
+
+/****************************************
+* Todo footer
+*/
+
+.todo__footer {
+  margin-top: 1.5rem;
+  padding: 1.5rem 3rem 0;
+  border-top: 2px solid var(--color-primary-opacity);
+  background-color: var(--color-light);
+}
+
+.btn--clear-all {
+  padding: 1rem 3rem;
+  font-size: inherit;
+  border-radius: 5px;
+  background: var(--gradient-primary);
+  cursor: pointer;
+  border: none;
+}
